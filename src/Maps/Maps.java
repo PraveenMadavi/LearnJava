@@ -27,13 +27,5 @@ public class Maps {
         empIds.put("Akash",1010);
         System.out.println(empIds);
 
-
-
-
-
-
-
-
-
     }
 }
