@@ -1,7 +1,6 @@
-package Java8;
+package Java8.Streams;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 public class Streams {
 
