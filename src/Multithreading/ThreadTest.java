@@ -10,11 +10,11 @@ public class ThreadTest implements Runnable{
     public void run() {
         for (int i =1 ;i <=10;i++){
             System.out.println(i*x+" Thread id : "+Thread.currentThread().threadId());
-//            try {
-//                Thread.sleep(0);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

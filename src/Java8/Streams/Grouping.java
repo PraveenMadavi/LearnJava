@@ -9,14 +9,13 @@ import java.util.stream.Stream;
 public class Grouping {
 
     public static void main(String[] args) {
-        List<String> list = Arrays.asList("Amrita", "Sanskar", "Pratham", "Rambha", "Nachin", "Jay");
+        List<String> list = Arrays.asList("Amrita", "Aman", "Ashok", "Birju", "Bilawal", "Sanskar", "Pratham", "Praveen", "Rambha", "Sachin", "Jay" ,"Juli", "Veer", "Viru", "Nachiket");
 
-         Map<String,Integer> myMap =list.stream().collect(Collectors.toMap(s -> s,String::length));
-
-        System.out.println(myMap);
-
-        Map<String, List<Integer>> listMap = list.stream().collect(Collectors.groupingBy(s -> s, Collectors.mapping(String::length, Collectors.toList())));
-        System.out.println(listMap);
+//         Map<String,Integer> myMap =list.stream().collect(Collectors.toMap(s -> s,String::length));
+//        System.out.println(myMap);
+//
+//        Map<String, List<Integer>> listMap = list.stream().collect(Collectors.groupingBy(s -> s, Collectors.mapping(String::length, Collectors.toList())));
+//        System.out.println(listMap);
 
         Map<Character, List<String>> characterListMap = list.stream().collect(Collectors.groupingBy(name -> name.charAt(0)));
         System.out.println(characterListMap);
