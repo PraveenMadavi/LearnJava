@@ -40,7 +40,8 @@ public class Main {
 
         System.out.println("list.stream().filter(n-> n > 5).count() = " + list.stream().filter(n -> n > 5).count());
 
-
+        System.out.println("list.stream().max(Integer::compareTo) = " + list.stream().max(Integer::compareTo));
+        System.out.println("list.stream().min(Integer::compareTo) = " + list.stream().min(Integer::compareTo));
 
 
     }
