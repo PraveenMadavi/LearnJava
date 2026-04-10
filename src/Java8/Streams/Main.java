@@ -10,7 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Question question = new Question();
 
-        System.out.println(question.listOfNames);
+//        System.out.println(question.listOfNames);
+
         //Names in uppercase
 //        List<String> list = question.listOfNames.stream().map(String::toUpperCase).toList();
 //        System.out.println(list);
@@ -30,12 +31,17 @@ public class Main {
 //        System.out.println(distinctNames);
 
         List<Integer> list = Arrays.asList(5, 3, 5, 6, 8, 2, 1, 7, 6, 7, 9);
-        List<Integer> sortedList = list.stream().sorted().toList();
-        System.out.println(sortedList);
+//        List<Integer> sortedList = list.stream().sorted().toList();
+//        System.out.println(sortedList);
+//
+//        list.stream().sorted(Comparator.reverseOrder()).toList().forEach(System.out::println);
+//        List<Integer> list1 = list.stream().distinct().sorted().toList();
+//        System.out.println(list1);
 
-        list.stream().sorted(Comparator.reverseOrder()).toList().forEach(System.out::println);
-        List<Integer> list1 = list.stream().distinct().sorted().toList();
-        System.out.println(list1);
+        System.out.println("list.stream().filter(n-> n > 5).count() = " + list.stream().filter(n -> n > 5).count());
+
+
+
 
     }
 }
