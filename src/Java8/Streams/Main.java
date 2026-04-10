@@ -13,6 +13,8 @@ public class Main {
 //        System.out.println(list1);
         //if null-names
         System.out.println(question.listOfNames.stream().filter(names -> names!=null && !names.isBlank()).map(names -> names.substring(0, 1).toUpperCase() + names.substring(1)).toList());
+        //same but with different
+        System.out.println(question.listOfNames.stream().filter(names -> names!=null && !names.isBlank()).map(names -> Character.toUpperCase(names.charAt(0))+names.substring(1)).toList());
 
 
 
