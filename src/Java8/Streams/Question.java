@@ -5,5 +5,5 @@ import java.util.List;
 
 public class Question {
 //    Convert all names to uppercase.
-    List<String> listOfNames = Arrays.asList("pravin", "java", "spring", "sunder", "john");
+    List<String> listOfNames = Arrays.asList("pravin", "java", "spring", "sunder", "john", "  ", null);
 }
