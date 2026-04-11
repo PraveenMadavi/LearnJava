@@ -1,16 +1,23 @@
 package Java8.Streams;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
+import java.security.KeyPair;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
         Question question = new Question();
 
-//        System.out.println(question.listOfNames);
+        System.out.println(question.listOfNames);
+
+        Map<String, Integer> mappedNames = question.listOfNames.stream()
+                .filter(names -> names != null && !names.isBlank())
+//                .distinct()
+                .collect(Collectors.toMap(names -> names, String::length,(existing,replacement)->existing));
+        System.out.println(mappedNames);
+//        mappedNames.forEach((k,v)-> System.out.println(k +"--"+v));  //JUST FOR FUN TEST
 
         //Names in uppercase
 //        List<String> list = question.listOfNames.stream().map(String::toUpperCase).toList();
@@ -38,10 +45,10 @@ public class Main {
 //        List<Integer> list1 = list.stream().distinct().sorted().toList();
 //        System.out.println(list1);
 
-        System.out.println("list.stream().filter(n-> n > 5).count() = " + list.stream().filter(n -> n > 5).count());
-
-        System.out.println("list.stream().max(Integer::compareTo) = " + list.stream().max(Integer::compareTo));
-        System.out.println("list.stream().min(Integer::compareTo) = " + list.stream().min(Integer::compareTo));
+//        System.out.println("list.stream().filter(n-> n > 5).count() = " + list.stream().filter(n -> n > 5).count());
+//
+//        System.out.println("list.stream().max(Integer::compareTo) = " + list.stream().max(Integer::compareTo));
+//        System.out.println("list.stream().min(Integer::compareTo) = " + list.stream().min(Integer::compareTo));
 
 
     }
