@@ -6,11 +6,20 @@ public class B extends A{
         System.out.println("From class B : x = " + x);
     }
 
+    @Override
+    public void print() {
+        System.out.println("PRINTING FROM CLASS B");
+    }
+
     public static void main(String[] args) {
 
         B b1 = new B();
         A a = new B();
         b1.m1();
         b1.m2();
+
+        b1.print();
+        a.print();
+
     }
 }
