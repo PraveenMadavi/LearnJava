@@ -12,11 +12,12 @@ public class Main {
 
         System.out.println(question.listOfNames);
 
-        Map<String, Integer> mappedNames = question.listOfNames.stream()
-                .filter(names -> names != null && !names.isBlank())
-//                .distinct()
-                .collect(Collectors.toMap(names -> names, String::length,(existing,replacement)->existing));
-        System.out.println(mappedNames);
+//        DISTINCTS
+//        Map<String, Integer> mappedNames = question.listOfNames.stream()
+//                .filter(names -> names != null && !names.isBlank())
+////                .distinct()
+//                .collect(Collectors.toMap(names -> names, String::length,(existing,replacement)->existing));
+//        System.out.println(mappedNames);
 //        mappedNames.forEach((k,v)-> System.out.println(k +"--"+v));  //JUST FOR FUN TEST
 
         //Names in uppercase
