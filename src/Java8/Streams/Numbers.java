@@ -1,6 +1,7 @@
 package Java8.Streams;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -35,11 +36,17 @@ public class Numbers {
 //        System.out.println(skippedSum);
 
         //FIND DUPLICATES
-        Set<Integer> numbs = new HashSet<>();
-        List<Integer> duplicates = randomNumbs.stream()
-                .filter(n -> !numbs.add(n))
-                .toList();
-        System.out.println("duplicates = " + duplicates);
+//        Set<Integer> numbs = new HashSet<>();
+//        List<Integer> duplicates = randomNumbs.stream()
+//                .filter(n -> !numbs.add(n))
+//                .toList();
+//        System.out.println("duplicates = " + duplicates);
+
+        //PARTITIONING
+        Map<Boolean, List<Integer>> partition = randomNumbs.stream()
+                .distinct()
+                .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+        System.out.println("partition = " + partition);
 
     }
 }
