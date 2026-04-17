@@ -60,5 +60,11 @@ public class Main {
         //WITHOUT OPTIONAL
         Map<Department, Employee> maxSalaryEmpByDept2 = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(e -> e.salary)), opt -> opt.orElse(null))));
         maxSalaryEmpByDept2.forEach(((department, employee) -> System.out.println(department + " -> " + employee)));
+
+        System.out.println();
+        Map<Department, List<String>> departmentWiseEmployees = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.mapping(Employee::getName, Collectors.toList())));
+        departmentWiseEmployees.forEach((department,names)-> System.out.println(department + " --> " + names));
+
+
     }
 }
