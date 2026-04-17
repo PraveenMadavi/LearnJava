@@ -1,8 +1,7 @@
 package Java8.Streams.Objects;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -42,11 +41,24 @@ public class Main {
     }
     public static void main(String[] args) {
         List<Employee> employeeList = addEmployees();
-
-        List<Employee> list = employeeList.stream().filter(employee -> employee.salary > 50000).toList();
+        //FILTER SALARY > 50000
+        List<Employee> list = employeeList.stream()
+                .filter(employee -> employee.salary > 50000)
+                .toList();
         list.forEach(System.out::println);
 
-        Employee employee1 = employeeList.stream().max(Comparator.comparingInt(employee -> employee.salary)).orElseThrow(()->new RuntimeException("No Such employee."));
+        //MAX SALARY EMPLOYEE
+        Employee employee1 = employeeList.stream()
+                .max(Comparator.comparingInt(employee -> employee.salary))
+                .orElseThrow(()->new RuntimeException("No Such employee."));
         System.out.println("employee1 = " + employee1);
+
+        //MAX SALARY EMPLOYEE OF EACH DEPT.
+        Map<Department, Optional<Employee>> maxSalariedEmpByDept = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.maxBy(Comparator.comparingInt(e -> e.salary))));
+        maxSalariedEmpByDept.forEach((dept,emp)-> System.out.println(dept + " -> " + emp.orElse(null)));
+
+        //WITHOUT OPTIONAL
+        Map<Department, Employee> maxSalaryEmpByDept2 = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(e -> e.salary)), opt -> opt.orElse(null))));
+        maxSalaryEmpByDept2.forEach(((department, employee) -> System.out.println(department + " -> " + employee)));
     }
 }
