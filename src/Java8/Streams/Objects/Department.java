@@ -1,9 +1,9 @@
 package Java8.Streams.Objects;
 
 public class Department {
-    String name;
+    protected String name;
 
-    public Department(String name){
+    public Department(String name) {
         this.name = name;
     }
 
