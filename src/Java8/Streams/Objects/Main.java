@@ -92,7 +92,24 @@ public class Main {
                 .collect(Collectors.groupingBy(Employee::getDepartment));
         employeeDepartmentWise.forEach((dept, empList) -> {
             System.out.println(dept.getName() + " ==> ");
-            empList.forEach(e -> System.out.println("   Name : " + e.getName() + " , Salary : " + e.getSalary()));
+            empList.forEach(e ->
+                    System.out.printf("   Name: %s, Salary: %d%n", e.getName(), e.getSalary())
+            );
+        });
+        System.out.println("From GPT");
+        employeeDepartmentWise.forEach((dept, empList) ->
+                System.out.println(dept.getName() + " ==> " +
+                        empList.stream()
+                                .map(Employee::getName)
+                                .toList()
+                )
+        );
+        System.out.println("Another Style from GPT");
+        employeeDepartmentWise.forEach((dept, empList) -> {
+            System.out.println(dept.getName() + " ==> ");
+            empList.stream()
+                    .map(e -> String.format("   Name: %s, Salary: %d", e.getName(), e.getSalary()))
+                    .forEach(System.out::println);
         });
 
     }
